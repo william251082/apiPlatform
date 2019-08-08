@@ -9,4 +9,3 @@
 .idea
 composer.lock
 /.env
-symfony.lock
