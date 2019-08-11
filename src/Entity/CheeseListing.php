@@ -102,6 +102,13 @@ class CheeseListing
         return $this->title;
     }
 
+    public function setTitle($title): string
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;
@@ -155,6 +162,13 @@ class CheeseListing
         return $this->createdAt;
     }
 
+    public function setCreatedAt(\DateTimeInterface $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
     /**
      * How long ago that this cheese has been added
      * @Groups({"cheese_listing:read"})
@@ -186,5 +200,10 @@ class CheeseListing
         $this->owner = $owner;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->title;
     }
 }
