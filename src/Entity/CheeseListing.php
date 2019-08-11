@@ -21,7 +21,10 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
  *          "put"},
  *     normalizationContext={"groups"={"cheese_listing:read"}, "swagger_definition_name"="Read"},
  *     denormalizationContext={"groups"={"cheese_listing:write"}, "swagger_definition_name"="Write"},
- *     shortName="cheeses"
+ *     shortName="cheeses",
+ *     attributes={
+ *          "pagination_items_per_page"=10
+ *      }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\CheeseListingRepository")
  * @ApiFilter(BooleanFilter::class, properties={"isPublished"})
@@ -52,7 +55,7 @@ class CheeseListing
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"cheese_listing:read"})
+     * @Groups({"cheese_listing:read", "cheese_listing:write"})
      */
     private $price;
 
